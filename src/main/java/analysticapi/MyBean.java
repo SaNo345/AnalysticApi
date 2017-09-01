@@ -1,5 +1,6 @@
 package analysticapi;
 
+
 /**
  * Created by Sano on 27.08.2017.
  */
