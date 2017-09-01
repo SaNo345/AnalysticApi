@@ -8,6 +8,9 @@
     <s:form action="myAction">
         <s:submit value="OK"></s:submit>
     </s:form>
+    <hr>
 
+   <s:url action="myAction">
+   </s:url>
     </body>
 </html>

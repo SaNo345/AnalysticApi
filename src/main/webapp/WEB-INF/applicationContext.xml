@@ -5,6 +5,10 @@
 
 
     <bean id="myBean" class="analysticapi.MyBean">
+        <property name="user" ref="user"></property>
+    </bean>
+
+    <bean id="user" class="analysticapi.User">
     </bean>
 
 
