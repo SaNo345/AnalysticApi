@@ -5,10 +5,12 @@
         "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 
 <struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.objectFactory" value="spring"/>
 
-   <package name="content" extends="struts-default">
+   <package name="default" extends="struts-default">
         <action name="myAction" class="Action.MyAction" method="execute">
-            <result name="success">/pages/next.jsp</result>
+            <result name="success">pages/next.jsp</result>
         </action>
     </package>
 

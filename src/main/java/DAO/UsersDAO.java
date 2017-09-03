@@ -1,7 +1,5 @@
 package DAO;
 
-import analysticapi.User;
-
 import java.util.Date;
 import java.util.List;
 
