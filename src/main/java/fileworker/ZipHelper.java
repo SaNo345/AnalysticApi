@@ -8,7 +8,7 @@ import java.io.File;
  * Created by Sano on 29.08.2017.
  */
 public class ZipHelper {
-    private static final String ZIP = "data.zip";
+    private static final String ZIP ="C:/Users/Sano/AnalysticApi4/data";
       public static void zipFiles(String folderPath) {
           File zip = new File(ZIP);
           if(zip.exists()){
