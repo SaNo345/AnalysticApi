@@ -7,6 +7,8 @@ import fileworker.CSVWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Sano on 27.08.2017.
@@ -19,12 +21,14 @@ public class MyAction extends ActionSupport {
     @Autowired
     private CSVWorker worker;
 
+    private Date Inputdate;
+
 
 
     @Override
     public String execute() throws Exception {
-     worker.write(userDAO.getUsers().get(1),0);
-
+      worker.writeUser(userDAO.getUsers());
+      worker.writeReq(userDAO.getDAU("2017/09/09"));
 
         return SUCCESS;
     }
@@ -36,4 +40,11 @@ public class MyAction extends ActionSupport {
         this.userDAO = userDAO;
     }
 
+    public Date getInputdate() {
+        return Inputdate;
+    }
+
+    public void setInputdate(Date inputdate) {
+        Inputdate = inputdate;
+    }
 }

@@ -1,5 +1,6 @@
 package DAO;
 
+import analysticapi.Request;
 import analysticapi.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,8 +36,21 @@ public class UserDAOImpl implements UsersDAO {
         return false;
     }
 
-    public List<User> getDAU(Date date) {
-        return null;
+    public List<Request> getDAU(String date) throws SQLException {
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        List<Request> requests = new ArrayList<Request>();
+
+        ResultSet result = statement.executeQuery(
+                "SELECT user_id FROM request WHERE req_date="+"'"+date+"'");
+
+        while (result.next()) {
+            Request request = new Request(result.getInt("user_id"),date);
+            requests.add(request);
+        }
+        connection.close();
+        return requests;
     }
 
 
@@ -56,6 +70,7 @@ public class UserDAOImpl implements UsersDAO {
                     result.getDate("instal_date"));
             users.add(user);
         }
+        connection.close();
         return users;
     }
 

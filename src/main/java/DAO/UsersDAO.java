@@ -1,5 +1,6 @@
 package DAO;
 
+import analysticapi.Request;
 import analysticapi.User;
 
 import java.sql.SQLException;
@@ -12,6 +13,6 @@ import java.util.List;
 public interface UsersDAO {
     boolean addUser(User user) throws SQLException;
     boolean isLoginTrue(User user);
-    List<User>getDAU(Date date);
+    List<Request>getDAU(String date) throws SQLException;
     List<User>getUsers() throws SQLException;
 }
