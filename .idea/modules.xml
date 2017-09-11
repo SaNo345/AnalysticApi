@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AnalysticApi4.iml" filepath="$PROJECT_DIR$/AnalysticApi4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analysticapi.iml" filepath="$PROJECT_DIR$/analysticapi.iml" />
     </modules>
   </component>
 </project>

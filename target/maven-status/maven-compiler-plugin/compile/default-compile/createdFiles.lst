@@ -1,0 +1,8 @@
+Action\MyAction.class
+DAO\UserDAOImpl.class
+analysticapi\Request.class
+fileworker\ZipHelper.class
+fileworker\CSVWorker.class
+DAO\UsersDAO.class
+fileworker\Test.class
+analysticapi\User.class
