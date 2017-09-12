@@ -12,18 +12,19 @@ import java.util.List;
 /**
  * Created by Sano on 30.08.2017.
  */
-public class CSVWorker {
+public class CSVWorkerImpl implements CSVWorker {
     private StringBuilder csvContent;
-    private final String USERFileNAME = "C:/Users/Sano/AnalysticApi4/data/users.csv";
-    private final String REQUESTFileNAME = "C:/Users/Sano/AnalysticApi4/data/request.csv";
+    private  String userCSVpath;
+    private  String reqCSVpath ;
 
 
-    public CSVWorker() {
+    public CSVWorkerImpl() {
     }
 
-    // if flag is 0  content will be write in users.csv , 1 in requst.csv
-    public void writeUser(List<User> users) throws IOException {
-
+    public boolean writeUser(List<User> users) throws IOException {
+        if(users.isEmpty()){
+            return false;
+        }
         csvContent = new StringBuilder("User-id,instal-date" + "\n");
 
 
@@ -32,7 +33,7 @@ public class CSVWorker {
         }
 
 
-        File csv = new File(USERFileNAME);
+        File csv = new File(userCSVpath);
 
         if (csv.exists()) {
             //clean csv file
@@ -45,12 +46,13 @@ public class CSVWorker {
 
         System.out.println(csv.getAbsolutePath());
 
-        FileWriter writer = new FileWriter(USERFileNAME, true);
+        FileWriter writer = new FileWriter(userCSVpath, true);
         PrintWriter printWriter = new PrintWriter(writer, false);
         printWriter.write(csvContent.toString());
         printWriter.flush();
         printWriter.close();
         writer.close();
+        return true;
 
     }
 
@@ -65,7 +67,7 @@ public class CSVWorker {
         }
 
 
-        File csv = new File(REQUESTFileNAME);
+        File csv = new File(reqCSVpath);
 
         if (csv.exists()) {
             //clean csv file
@@ -78,7 +80,7 @@ public class CSVWorker {
 
         System.out.println(csv.getAbsolutePath());
 
-        FileWriter writer = new FileWriter(REQUESTFileNAME, true);
+        FileWriter writer = new FileWriter(reqCSVpath, true);
         PrintWriter printWriter = new PrintWriter(writer, false);
         printWriter.write(csvContent.toString());
         printWriter.flush();
@@ -88,5 +90,19 @@ public class CSVWorker {
 
     }
 
+    public String getUserCSVpath() {
+        return userCSVpath;
+    }
 
+    public void setUserCSVpath(String userCSVpath) {
+        this.userCSVpath = userCSVpath;
+    }
+
+    public String getReqCSVpath() {
+        return reqCSVpath;
+    }
+
+    public void setReqCSVpath(String reqCSVpath) {
+        this.reqCSVpath = reqCSVpath;
+    }
 }

@@ -1,17 +1,13 @@
-package DAO;
+package dao;
 
-import analysticapi.Request;
-import analysticapi.User;
+import entities.Request;
+import entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +25,14 @@ public class UserDAOImpl implements UsersDAO {
 
 
     public boolean addUser(User user) throws SQLException {
+        Connection connection = dataSource.getConnection();
+        String insertSql = "INSERT INTO users (name,mail,password) VALUES (?,?,?)";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
+        preparedStatement.setString(1, user.getName());
+        preparedStatement.setString(2, user.getMail());
+        preparedStatement.setString(3, user.getPassword());
+        preparedStatement.executeUpdate();
         return false;
     }
 
@@ -43,10 +47,10 @@ public class UserDAOImpl implements UsersDAO {
         List<Request> requests = new ArrayList<Request>();
 
         ResultSet result = statement.executeQuery(
-                "SELECT user_id FROM request WHERE req_date="+"'"+date+"'");
+                "SELECT user_id FROM request WHERE req_date=" + "'" + date + "'");
 
         while (result.next()) {
-            Request request = new Request(result.getInt("user_id"),date);
+            Request request = new Request(result.getInt("user_id"), date);
             requests.add(request);
         }
         connection.close();

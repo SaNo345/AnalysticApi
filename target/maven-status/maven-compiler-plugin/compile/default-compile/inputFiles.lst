@@ -1,8 +1,10 @@
 C:\Users\Sano\AnalysticApi4\src\main\java\fileworker\CSVWorker.java
-C:\Users\Sano\AnalysticApi4\src\main\java\fileworker\Test.java
+C:\Users\Sano\AnalysticApi4\src\main\java\fileworker\CSVWorkerImpl.java
 C:\Users\Sano\AnalysticApi4\src\main\java\fileworker\ZipHelper.java
-C:\Users\Sano\AnalysticApi4\src\main\java\analysticapi\User.java
-C:\Users\Sano\AnalysticApi4\src\main\java\analysticapi\Request.java
-C:\Users\Sano\AnalysticApi4\src\main\java\DAO\UserDAOImpl.java
-C:\Users\Sano\AnalysticApi4\src\main\java\DAO\UsersDAO.java
-C:\Users\Sano\AnalysticApi4\src\main\java\Action\MyAction.java
+C:\Users\Sano\AnalysticApi4\src\main\java\controller\DownloadDAU.java
+C:\Users\Sano\AnalysticApi4\src\main\java\controller\RegisterAction.java
+C:\Users\Sano\AnalysticApi4\src\main\java\controller\RegAction.java
+C:\Users\Sano\AnalysticApi4\src\main\java\dao\UserDAOImpl.java
+C:\Users\Sano\AnalysticApi4\src\main\java\dao\UsersDAO.java
+C:\Users\Sano\AnalysticApi4\src\main\java\entities\Request.java
+C:\Users\Sano\AnalysticApi4\src\main\java\entities\User.java

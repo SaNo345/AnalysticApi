@@ -9,8 +9,23 @@
     <constant name="struts.objectFactory" value="spring"/>
 
    <package name="default" extends="struts-default">
-        <action name="myAction" class="Action.MyAction" method="execute">
-            <result name="success">pages/next.jsp</result>
+        <action name="downloadDAU" class="controller.DownloadDAU" method="execute">
+            <result name="success" type="stream">
+                <param name="contentType">aplication/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">attachment;filename="data.zip"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+            <result name="none">pages/empty.jsp</result>
+        </action>
+    </package>
+    <package name="register"  extends="struts-default">
+        <action name="reg"  class="controller.RegAction">
+            <result >register.jsp</result>
+        </action>
+        <action name="register" class="controller.RegisterAction">
+            <result name="success">login.jsp</result>
+            <result name="error">pages/empty.jsp</result>
         </action>
     </package>
 

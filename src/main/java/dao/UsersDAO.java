@@ -1,10 +1,9 @@
-package DAO;
+package dao;
 
-import analysticapi.Request;
-import analysticapi.User;
+import entities.Request;
+import entities.User;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
 /**

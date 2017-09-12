@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="apiProperties"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:api.properties"/>
+    </bean>
+    <bean id="downloadDAU" class="controller.DownloadDAU"></bean>
+    <bean id="user" class="entities.User"></bean>
+    <bean id="userDaoimpl" class="dao.UserDAOImpl"></bean>
+    <bean id="zipHelper" class="fileworker.ZipHelper">
+    </bean>
+    <bean id="csvWorker" class="fileworker.CSVWorkerImpl">
+        <property name="userCSVpath" value="${user.csv}"/>
+        <property name="reqCSVpath" value="${request.csv}"/>
+    </bean>
+    <bean id="request" class="entities.Request"></bean>
+    <bean id="registerAction" class="controller.RegisterAction"/>
+
+</beans>

@@ -1,4 +1,4 @@
-package analysticapi;
+package entities;
 
 
 import java.sql.Date;

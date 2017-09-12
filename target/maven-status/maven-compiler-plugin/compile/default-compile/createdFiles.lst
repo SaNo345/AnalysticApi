@@ -1,8 +1,10 @@
-Action\MyAction.class
-DAO\UserDAOImpl.class
-analysticapi\Request.class
+controller\DownloadDAU.class
+controller\RegAction.class
+controller\RegisterAction.class
+entities\Request.class
+dao\UsersDAO.class
 fileworker\ZipHelper.class
+entities\User.class
+fileworker\CSVWorkerImpl.class
 fileworker\CSVWorker.class
-DAO\UsersDAO.class
-fileworker\Test.class
-analysticapi\User.class
+dao\UserDAOImpl.class

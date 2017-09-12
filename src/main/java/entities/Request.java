@@ -1,4 +1,4 @@
-package analysticapi;
+package entities;
 
 /**
  * Created by Sano on 09.09.2017.
