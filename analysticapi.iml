@@ -20,10 +20,12 @@
       </configuration>
       <facet type="Struts2" name="Struts 2">
         <configuration>
-          <fileset id="s2fileset" name="My Fileset " removed="false">
+          <fileset id="s2fileset2" name="My Fileset 2" removed="false">
             <file>file://$MODULE_DIR$/src/main/resources/struts.xml</file>
             <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.1.8/struts2-core-2.1.8.jar!/struts-default.xml</file>
             <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-dojo-plugin/2.1.8/struts2-dojo-plugin-2.1.8.jar!/struts-plugin.xml</file>
+            <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-json-plugin/2.3.1.2/struts2-json-plugin-2.3.1.2.jar!/struts-plugin.xml</file>
+            <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-rest-plugin/2.3.1.2/struts2-rest-plugin-2.3.1.2.jar!/struts-plugin.xml</file>
             <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-spring-plugin/2.1.6/struts2-spring-plugin-2.1.6.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />

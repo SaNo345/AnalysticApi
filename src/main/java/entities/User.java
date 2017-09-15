@@ -13,6 +13,7 @@ public class User {
     private String password;
     private java.sql.Date date;
 
+
     public User() {
     }
 
@@ -63,4 +64,6 @@ public class User {
     public void setDate(Date date) {
         this.date = date;
     }
+
+
 }

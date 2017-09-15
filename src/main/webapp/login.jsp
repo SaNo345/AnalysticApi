@@ -7,12 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
+<%@ page session="false" %>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>Login</title>
 </head>
-<body>
+    <body>
 
-<h1>Next</h1>
-</body>
+        <h1>Login</h1>
+        <s:form action="login">
+            <s:textfield name="mail" label="Email"/>
+            <s:password name="password" label="Password"/>
+            <s:submit value="Login"/>
+        </s:form>
+    </body>
 </html>

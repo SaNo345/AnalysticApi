@@ -1,19 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: Sano
-  Date: 11.09.2017
-  Time: 0:06
+  Date: 15.09.2017
+  Time: 22:30
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="s" uri="/struts-tags" %>
-
 <html>
 <head>
-    <title>EMpty</title>
+    <title>Registr Feild</title>
 </head>
 <body>
-<h3>DAU in <s:property value="Inputdate"/> day is empty </h3>
+ <h2>Registration is Feild</h2>
 
 </body>
 </html>

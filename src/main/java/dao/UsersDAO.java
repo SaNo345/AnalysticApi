@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface UsersDAO {
     boolean addUser(User user) throws SQLException;
-    boolean isLoginTrue(User user);
+    boolean isLoginTrue(String mail,String password) throws SQLException;
     List<Request>getDAU(String date) throws SQLException;
     List<User>getUsers() throws SQLException;
 }

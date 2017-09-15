@@ -3,7 +3,6 @@ package controller;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.UserDAOImpl;
 import entities.User;
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -20,16 +19,31 @@ public class RegisterAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        LocalDate localDate = new LocalDate();
+        if(name==null|| mail==null || password==null){
+            return INPUT;
+        }
+
         user.setName(name);
         user.setMail(mail);
         user.setPassword(password);
-        user.setDate(java.sql.Date.valueOf(localDate.toString()));
-        System.out.println();
+
         if(!userDAO.addUser(user)){
             return ERROR;
         }
         return SUCCESS;
+    }
+
+    @Override
+    public void validate() {
+        if(getName().length()<3){
+            addFieldError("name","Name dont correct");
+        }
+        if(getMail().indexOf('@')<0||getMail().length()<5){
+            addFieldError("mail","Mail dont correct");
+        }
+        if(getPassword().length()<4){
+            addFieldError("password","Password dont correct");
+        }
     }
 
     public String getName() {
@@ -71,4 +85,5 @@ public class RegisterAction extends ActionSupport {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

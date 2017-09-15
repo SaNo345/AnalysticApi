@@ -1,7 +1,9 @@
 package controller;
 
+import com.opensymphony.xwork2.ActionContext;
 import dao.UserDAOImpl;
 import com.opensymphony.xwork2.ActionSupport;
+import entities.User;
 import fileworker.CSVWorkerImpl;
 import fileworker.ZipHelper;
 import org.joda.time.DateTime;
@@ -10,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Date;
-
+import java.util.Map;
 
 
 /**
@@ -25,11 +27,18 @@ public class DownloadDAU extends ActionSupport {
     private CSVWorkerImpl worker;
     @Autowired
     private ZipHelper zip;
+    @Autowired
+    private User user;
 
     private Date Inputdate;
     private FileInputStream fileInputStream;
     @Override
     public String execute() throws Exception {
+        Map session = ActionContext.getContext().getSession();
+        if(session.get("logined")==null){
+            return ERROR;
+        }
+
         DateTime dateTime = new DateTime(Inputdate);
         String date=dateTime.toString("yyyy/MM/dd");
 
@@ -37,6 +46,7 @@ public class DownloadDAU extends ActionSupport {
           //DAU in this date  empty !!
           return NONE;
       }
+      worker.writeUser(userDAO.getUsers());
         zip.zipFiles("C:/Users/Sano/AnalysticApi4/data");
 
         fileInputStream = new FileInputStream(new File("C:/Users/Sano/AnalysticApi4/data.zip"));

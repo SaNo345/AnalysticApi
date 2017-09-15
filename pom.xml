@@ -1,78 +1,75 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.plexonic</groupId>
-  <artifactId>analysticapi</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>entities Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-    <properties><org.springframework-version>4.3.0.RELEASE</org.springframework-version></properties>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.plexonic</groupId>
+    <artifactId>analysticapi</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>entities Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <org.springframework-version>4.3.0.RELEASE</org.springframework-version>
+    </properties>
 
-  <dependencies>
+    <dependencies>
 
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-webmvc</artifactId>
-          <version>${org.springframework-version}</version>
-      </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
 
-      <dependency>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts2-core</artifactId>
-          <version>2.1.8</version>
-      </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.1.8</version>
+        </dependency>
 
-      <dependency>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts2-dojo-plugin</artifactId>
-          <version>2.1.8</version>
-      </dependency>
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-dojo-plugin</artifactId>
+            <version>2.1.8</version>
+        </dependency>
 
-      <!-- Struts 2 + Spring plugins -->
-      <dependency>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts2-spring-plugin</artifactId>
-          <version>2.1.6</version>
-      </dependency>
+        <!-- Struts 2 + Spring plugins -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-spring-plugin</artifactId>
+            <version>2.1.6</version>
+        </dependency>
 
-      <!-- Zip  -->
-      <dependency>
-          <groupId>org.zeroturnaround</groupId>
-          <artifactId>zt-zip</artifactId>
-          <version>1.11</version>
-      </dependency>
-
-      
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-aop</artifactId>
-          <version>4.3.10.RELEASE</version>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-orm</artifactId>
-          <version>4.3.10.RELEASE</version>
-      </dependency>
-
-      <dependency>
-          <groupId>org.postgresql</groupId>
-          <artifactId>postgresql</artifactId>
-          <version>42.1.1</version>
-      </dependency>
-      <dependency>
-          <groupId>joda-time</groupId>
-          <artifactId>joda-time</artifactId>
-          <version>2.9.9</version>
-      </dependency>
+        <!-- Zip  -->
+        <dependency>
+            <groupId>org.zeroturnaround</groupId>
+            <artifactId>zt-zip</artifactId>
+            <version>1.11</version>
+        </dependency>
 
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>4.3.10.RELEASE</version>
+        </dependency>
 
-  </dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>4.3.10.RELEASE</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.1.1</version>
+        </dependency>
 
-  <build>
-    <finalName>entities</finalName>
-  </build>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.9</version>
+        </dependency>
+
+    </dependencies>
+
 </project>

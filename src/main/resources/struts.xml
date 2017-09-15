@@ -7,8 +7,11 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.objectFactory" value="spring"/>
+    <constant name="struts.action.extension" value="html" />
+    <constant name="struts.enable.SlashesInActionNames" value="false"/>
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
-   <package name="default" extends="struts-default">
+   <package name="download"  extends="struts-default">
         <action name="downloadDAU" class="controller.DownloadDAU" method="execute">
             <result name="success" type="stream">
                 <param name="contentType">aplication/octet-stream</param>
@@ -17,16 +20,29 @@
                 <param name="bufferSize">1024</param>
             </result>
             <result name="none">pages/empty.jsp</result>
+            <result name="error">register.jsp</result>
         </action>
     </package>
-    <package name="register"  extends="struts-default">
-        <action name="reg"  class="controller.RegAction">
-            <result >register.jsp</result>
+
+    <package name="login"  extends="struts-default">
+        <action name="login" class="controller.LoginAction" method="execute" >
+            <result name="success">index.jsp</result>
+            <result name="error">register.jsp</result>
+            <result name="input">login.jsp</result>
         </action>
+        <action name="logout" method="logOut" class="controller.LoginAction">
+            <result name="success">index.jsp</result>
+        </action>
+    </package>
+
+    <package name="register"  extends="struts-default">
         <action name="register" class="controller.RegisterAction">
             <result name="success">login.jsp</result>
             <result name="error">pages/empty.jsp</result>
+            <result name="input">register.jsp</result>
         </action>
     </package>
+
+
 
 </struts>

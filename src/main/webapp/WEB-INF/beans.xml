@@ -9,7 +9,7 @@
         <property name="location" value="classpath:api.properties"/>
     </bean>
     <bean id="downloadDAU" class="controller.DownloadDAU"></bean>
-    <bean id="user" class="entities.User"></bean>
+    <bean id="user" class="entities.User" scope="prototype"></bean>
     <bean id="userDaoimpl" class="dao.UserDAOImpl"></bean>
     <bean id="zipHelper" class="fileworker.ZipHelper">
     </bean>
@@ -19,5 +19,6 @@
     </bean>
     <bean id="request" class="entities.Request"></bean>
     <bean id="registerAction" class="controller.RegisterAction"/>
+    <bean id="loginAction" class="controller.LoginAction"/>
 
 </beans>

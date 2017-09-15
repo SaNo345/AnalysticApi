@@ -2,6 +2,7 @@ package dao;
 
 import entities.Request;
 import entities.User;
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,17 +27,45 @@ public class UserDAOImpl implements UsersDAO {
 
     public boolean addUser(User user) throws SQLException {
         Connection connection = dataSource.getConnection();
-        String insertSql = "INSERT INTO users (name,mail,password) VALUES (?,?,?)";
+        String insertSql = "INSERT INTO users (name,mail,password,instal_date) VALUES (?,?,?,?)";
+        LocalDate localDate = new LocalDate();
+        Date sqlDate = java.sql.Date.valueOf(localDate.toString());
 
         PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
         preparedStatement.setString(1, user.getName());
         preparedStatement.setString(2, user.getMail());
         preparedStatement.setString(3, user.getPassword());
-        preparedStatement.executeUpdate();
-        return false;
+        preparedStatement.setDate(4, sqlDate);
+        int sqlResult = preparedStatement.executeUpdate();
+        if (sqlResult == 0) {
+
+            connection.close();
+            return false;
+        }
+        connection.close();
+        return true;
     }
 
-    public boolean isLoginTrue(User user) {
+    public boolean isLoginTrue(String mail,String password) throws SQLException {
+        String SelectSql="SELECT user_id FROM users WHERE mail='"+mail+"'"+" AND password='"+password+"'";
+        String InsertSql="INSERT INTO request(req_date,user_id) VALUES(?,?) ";
+
+        Connection conn = dataSource.getConnection();
+        Statement statement=conn.createStatement();
+        ResultSet resultSet=statement.executeQuery(SelectSql);
+            if (resultSet.next()){
+                PreparedStatement preparedStatement=conn.prepareStatement(InsertSql);
+                LocalDate localDate = new LocalDate();
+                Date sqlDate = java.sql.Date.valueOf(localDate.toString());
+                preparedStatement.setDate(1,sqlDate);
+
+                preparedStatement.setInt(2,resultSet.getInt("user_id"));
+                 preparedStatement.executeUpdate();
+
+                conn.close();
+                return true;
+            }
+            conn.close();
         return false;
     }
 
